@@ -7,29 +7,135 @@ using System.Drawing;
 
 namespace iVM204
 {
-	partial class EditRelayViewController : UIViewController
-	{
+    partial class EditRelayViewController : UIViewController
+    {
         RelayCardInfo currentInfo;
-       
-        float scrollamount = 0.0f;
-        float bottomPoint = 0.0f;
-        bool moveViewUp = false;
-        public float yOffset = 0.1f;
-		public EditRelayViewController (IntPtr handle) : base (handle)
-		{
-          
-		}
+        private UIView activeview;             // Controller that activated the keyboard
+        private float scroll_amount = 0.0f;    // amount to scroll 
+        private float bottom = 0.0f;           // bottom point
+        private float offset = 10.0f;          // extra offset
+        private bool moveViewUp = false;           // which direction are we moving
+
+        public EditRelayViewController(IntPtr handle)
+            : base(handle)
+        {
+
+        }
+
+        
+
+        public override void ViewWillAppear(bool animated)
+        {
+            base.ViewWillAppear(animated);
+            if(currentInfo != null)
+            {
+                Populate();
+            }
+        }
+
+        private void Populate()
+        {
+            this.txtName.Text = currentInfo.Name;
+            this.txtUser.Text = currentInfo.Username;
+            this.txtPass.Text = currentInfo.Password;
+            this.txtIp.Text = currentInfo.Ip;
+            this.txtPort.Text = Convert.ToString(currentInfo.Port);
+        }
 
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
 
+            // Keyboard popup
+            NSNotificationCenter.DefaultCenter.AddObserver
+            (UIKeyboard.DidShowNotification, KeyBoardUpNotification);
+
+            // Keyboard Down
+            NSNotificationCenter.DefaultCenter.AddObserver
+            (UIKeyboard.WillHideNotification, KeyBoardDownNotification);
+
             this.txtName.ShouldReturn += TextFieldShouldReturn;
             this.txtUser.ShouldReturn += TextFieldShouldReturn;
-            this.txtPassword.ShouldReturn += TextFieldShouldReturn;
+            this.txtPass.ShouldReturn += TextFieldShouldReturn;
             this.txtIp.ShouldReturn += TextFieldShouldReturn;
             this.txtPort.ShouldReturn += TextFieldShouldReturn;
 
+            btnSave.TouchUpInside += (sender, ea) =>
+            {
+                UpdateCurrentInfo();
+                RelayCardInfoManager.SaveRelayCardInfo(currentInfo);
+            };
+        }
+
+
+
+        private void KeyBoardUpNotification(NSNotification notification)
+        {
+            // get the keyboard size
+            RectangleF r = UIKeyboard.BoundsFromNotification(notification);
+
+            // Find what opened the keyboard
+            foreach (UIView view in this.View.Subviews)
+            {
+                if (view.IsFirstResponder)
+                    activeview = view;
+            }
+
+            // Bottom of the controller = initial position + height + offset      
+            bottom = (activeview.Frame.Y + activeview.Frame.Height + offset);
+
+            // Calculate how far we need to scroll
+            scroll_amount = (r.Height - (View.Frame.Size.Height - bottom));
+
+            // Perform the scrolling
+            if (scroll_amount > 0)
+            {
+                moveViewUp = true;
+                ScrollTheView(moveViewUp);
+            }
+            else
+            {
+                moveViewUp = false;
+            }
+
+        }
+
+        private void UpdateCurrentInfo()
+        {
+            currentInfo.Name = this.txtName.Text;
+            currentInfo.Username = this.txtUser.Text;
+            currentInfo.Password = this.txtPass.Text;
+            currentInfo.Ip = this.txtIp.Text;
+            currentInfo.Port = Convert.ToInt32(this.txtPort.Text);
+        }
+
+        private void KeyBoardDownNotification(NSNotification notification)
+        {
+            if (moveViewUp) { ScrollTheView(false); }
+        }
+
+
+        private void ScrollTheView(bool move)
+        {
+
+            // scroll the view up or down
+            UIView.BeginAnimations(string.Empty, System.IntPtr.Zero);
+            UIView.SetAnimationDuration(0.3);
+
+            RectangleF frame = View.Frame;
+
+            if (move)
+            {
+                frame.Y -= scroll_amount;
+            }
+            else
+            {
+                frame.Y += scroll_amount;
+                scroll_amount = 0;
+            }
+
+            View.Frame = frame;
+            UIView.CommitAnimations();
         }
 
         private bool TextFieldShouldReturn(UITextField tf)
@@ -37,89 +143,15 @@ namespace iVM204
             tf.ResignFirstResponder();
             if (moveViewUp) { ScrollTheView(false); }
             return true;
-        }        
+        }
 
         public void SetRelayCardInfo(RelayCardInfo info)
         {
             currentInfo = info;
         }
 
-        private void KeyboardUpNotification(NSNotification notification)
-        {
-            ResetTheView();
-
-            RectangleF r = UIKeyboard.BoundsFromNotification(notification);
-
-            if (this.txtIp.IsEditing)
-            {
-                //Calculate the bottom of the Texbox
-                //plus a small margin...
-                bottomPoint = (this.txtIp.Frame.Y + this.txtIp.Frame.Height + yOffset);
-
-                //Calculate the amount to scroll the view
-                //upwards so the Textbox becomes visible...
-                //This is the height of the Keyboard -
-                //(the height of the display - the bottom
-                //of the Texbox)...	
-                scrollamount = (r.Height - (View.Frame.Size.Height - bottomPoint));
-            }
-
-            //Check to see whether the view
-            //should be moved up...
-            if (scrollamount > 0)
-            {
-                moveViewUp = true;
-                ScrollTheView(moveViewUp);
-            }
-            else moveViewUp = false;
-        }
-
-        private void ResetTheView()
-        {
-            UIView.BeginAnimations(string.Empty, System.IntPtr.Zero);
-            UIView.SetAnimationDuration(0.3);
-
-            RectangleF frame = View.Frame;
-            frame.Y = 0;
-            View.Frame = frame;
-            UIView.CommitAnimations();
-        }
-
-        private void ScrollTheView(bool movedUp)
-        {
-            //To invoke a views built-in animation behaviour,
-            //you create an animation block and
-            //set the duration of the move...
-            //Set the display scroll animation and duration...
-            UIView.BeginAnimations(string.Empty, System.IntPtr.Zero);
-            UIView.SetAnimationDuration(0.3);
-
-            //Get Display size...
-            RectangleF frame = View.Frame;
-
-            if (movedUp)
-            {
-                //If the view should be moved up,
-                //subtract the keyboard height from the display...
-                frame.Y -= scrollamount;
-            }
-            else
-            {
-                //If the view shouldn't be moved up, restore it
-                //by adding the keyboard height back to the original...
-                frame.Y += scrollamount;
-            }
-
-            //Assign the new frame to the view...
-            View.Frame = frame;
-
-            //Tell the view that your all done with setting
-            //the animation parameters, and it should
-            //start the animation...
-            UIView.CommitAnimations();
-
-        }
 
        
+
     }
 }

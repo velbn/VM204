@@ -18,11 +18,19 @@ namespace iVM204
 		[GeneratedCode ("iOS Designer", "1.0")]
 		MonoTouch.UIKit.UIBarButtonItem addButton { get; set; }
 
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		MonoTouch.UIKit.UITableView TableView { get; set; }
+
 		void ReleaseDesignerOutlets ()
 		{
 			if (addButton != null) {
 				addButton.Dispose ();
 				addButton = null;
+			}
+			if (TableView != null) {
+				TableView.Dispose ();
+				TableView = null;
 			}
 		}
 	}

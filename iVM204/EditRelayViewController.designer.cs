@@ -16,6 +16,10 @@ namespace iVM204
 	{
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton btnSave { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UIView Edit { get; set; }
 
 		[Outlet]
@@ -28,7 +32,7 @@ namespace iVM204
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UITextField txtPassword { get; set; }
+		UITextField txtPass { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -40,6 +44,10 @@ namespace iVM204
 
 		void ReleaseDesignerOutlets ()
 		{
+			if (btnSave != null) {
+				btnSave.Dispose ();
+				btnSave = null;
+			}
 			if (Edit != null) {
 				Edit.Dispose ();
 				Edit = null;
@@ -52,9 +60,9 @@ namespace iVM204
 				txtName.Dispose ();
 				txtName = null;
 			}
-			if (txtPassword != null) {
-				txtPassword.Dispose ();
-				txtPassword = null;
+			if (txtPass != null) {
+				txtPass.Dispose ();
+				txtPass = null;
 			}
 			if (txtPort != null) {
 				txtPort.Dispose ();

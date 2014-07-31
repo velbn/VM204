@@ -44,8 +44,7 @@ namespace iVM204
         /// </summary>
         public override void AccessoryButtonTapped(UITableView tableView, NSIndexPath indexPath)
         {
-            new UIAlertView("Touchy TOUCH"
-                , tableItems[indexPath.Row].Name, null, "OK", null).Show();
+            
             var newRelayCardInfo = tableItems[indexPath.Row];
             // then open the detail view to edit it
             var detail = mController.Storyboard.InstantiateViewController("Edit") as EditRelayViewController;
