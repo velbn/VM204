@@ -1,0 +1,15 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.320416d4b2fcc053" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="c:\Users\bn\Documents\Visual Studio 2013\Projects\VM204\VM204\VM204.cs">
+    <Files>
+      <File FileName="..\..\..\VM204\Visual studio\VM204\VM204\ControlActivity.cs" Line="123" Column="1" />
+      <File FileName="c:\Users\bn\Documents\Visual Studio 2013\Projects\VM204\VM204\VM204.cs" Line="110" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="C:\Users\bn\Documents\VM204\Visual studio\VM204\VM204\ControlActivity.cs" line="83" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

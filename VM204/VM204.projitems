@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>5756e541-f1dd-43cc-8db3-3d8f194b5948</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>VM204</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)AsynchronousClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AuthFailedEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Connection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConnectionInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Discovery.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DiscoveryBuilder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DiscoveryTool.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IConnection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Input.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)InputsChangedEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MessageReceivedEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MyClass.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NoCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OutputsChangedEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Packet.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PacketEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ProtocolAnalyzer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Received.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Relay.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RelayCard.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RelayCardInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RelayCardInfoDatabaseADO.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RelayCardInfoManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RelayCardInfoRepositoryADO.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)StateObject.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TcpConnection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UdpBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UdpListener.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UdpState.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)VM204.cs" />
+  </ItemGroup>
+</Project>

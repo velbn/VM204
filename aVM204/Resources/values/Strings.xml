@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="hello">Hello World, Click Me!</string>
+	<string name="add">Add</string>
+	<string name="save">Save</string>
+	<string name="app_name">VM204</string>
+	<string name="name">Name</string>
+	<string name="username">Username</string>
+	<string name="password">Password</string>
+	<string name="ip">Ip</string>
+	<string name="port">Port</string>
+  <string name="action_search">search</string>
+</resources>
