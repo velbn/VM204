@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Android.Widget;
 using Android.App;
 using Android.Views;
@@ -10,7 +10,7 @@ using VM204;
 
 namespace aVM204
 {
-    public class RelayCardInfoAdapter : BaseAdapter<RelayCardInfo>
+    public class DiscoveryAdapter : BaseAdapter<RelayCardInfo>
     {
         Activity context;
 
@@ -18,7 +18,7 @@ namespace aVM204
 
         public event EventHandler<ImageButtonClickedEventArgs> ImageButtonClicked;
 
-        public RelayCardInfoAdapter(Activity context, List<RelayCardInfo> items)
+        public DiscoveryAdapter(Activity context, List<RelayCardInfo> items)
             : base()
         {
             this.context = context;
@@ -43,18 +43,8 @@ namespace aVM204
             View view = convertView; // re-use an existing view, if one is available
             if (view == null) // otherwise create a new one
             {
-                view = context.LayoutInflater.Inflate(Resource.Layout.RelayCardInfoRow, null);
+                view = context.LayoutInflater.Inflate(Resource.Layout.DiscoveryRow, null);
                 view.FindViewById<TextView>(Resource.Id.RelayName).Text = items[position].Name;
-                var b = view.FindViewById<ImageButton>(Resource.Id.EditButton);
-                b.Tag = position;
-                b.Click += (object sender, EventArgs e) =>
-                {
-                    var imageButton = sender as ImageButton;
-                    var i = imageButton.Tag;
-                    int pos = (int)i;
-
-                    OnImageButtonClicked(new ImageButtonClickedEventArgs(pos));
-                };
             }
 
 

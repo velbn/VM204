@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="#ff24902c"
+    android:padding="8dp"
+    android:descendantFocusability="blocksDescendants">
+    <TextView
+        android:id="@+id/RelayName"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:padding="5dp"
+        android:layout_alignParentLeft="true"
+        android:text="Test"
+        android:gravity="center_vertical" />
+</RelativeLayout>

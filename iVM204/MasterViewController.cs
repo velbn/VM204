@@ -51,8 +51,16 @@ namespace iVM204
 
 
             NavigationItem.RightBarButtonItem = addButton;
-
-            TableView.Source = new RootTableSource((RelayCardInfoManager.GetAllRelayCardInfos() as List<RelayCardInfo>).ToArray(),this);
+            var info = RelayCardInfoManager.GetAllRelayCardInfos();
+            if(info == null)
+            {
+                list = new List<RelayCardInfo>();
+            }
+            else
+            {
+                list = info as List<RelayCardInfo>;
+            }
+            TableView.Source = new RootTableSource(list.ToArray(),this);
             //RelayCardInfo info = new RelayCardInfo();
             //info.Name = "VM204";
             //info.Password = "test";

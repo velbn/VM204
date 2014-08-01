@@ -22,15 +22,24 @@ namespace iVM204
 
         }
 
-        
+
 
         public override void ViewWillAppear(bool animated)
         {
             base.ViewWillAppear(animated);
-            if(currentInfo != null)
+            if (currentInfo != null)
             {
                 Populate();
             }
+
+            this.NavigationItem.SetRightBarButtonItem(
+                new UIBarButtonItem(UIBarButtonSystemItem.Refresh, (sender, args) =>
+                {
+                    Scan();
+                    // button was clicked
+                })
+                , true);
+
         }
 
         private void Populate()
@@ -150,8 +159,15 @@ namespace iVM204
             currentInfo = info;
         }
 
+        public void Scan()
+        {
+            
+            var detail = this.Storyboard.InstantiateViewController("Scan") as ScanViewController;
+            //detail.SetRelayCardInfo(newRelayCardInfo);
+            this.NavigationController.PushViewController(detail, true);
+        }
 
-       
+
 
     }
 }

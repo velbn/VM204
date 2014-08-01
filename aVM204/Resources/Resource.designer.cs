@@ -75,14 +75,14 @@ namespace VM204
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f07001a
-			public const int EditButton = 2131165210;
+			// aapt resource value: 0x7f07001c
+			public const int EditButton = 2131165212;
 			
 			// aapt resource value: 0x7f07000b
 			public const int OutputRelativeLayout = 2131165195;
 			
-			// aapt resource value: 0x7f07001c
-			public const int RelayListView = 2131165212;
+			// aapt resource value: 0x7f07001b
+			public const int RelayListView = 2131165211;
 			
 			// aapt resource value: 0x7f070019
 			public const int RelayName = 2131165209;
@@ -93,14 +93,14 @@ namespace VM204
 			// aapt resource value: 0x7f070020
 			public const int action_scan = 2131165216;
 			
+			// aapt resource value: 0x7f07001e
+			public const int action_search = 2131165214;
+			
 			// aapt resource value: 0x7f07000a
 			public const int btnAdd = 2131165194;
 			
-			// aapt resource value: 0x7f07001b
-			public const int btnSave = 2131165211;
-			
-			// aapt resource value: 0x7f07001d
-			public const int btnScan = 2131165213;
+			// aapt resource value: 0x7f07001a
+			public const int btnSave = 2131165210;
 			
 			// aapt resource value: 0x7f070015
 			public const int checkBox1 = 2131165205;
@@ -132,8 +132,8 @@ namespace VM204
 			// aapt resource value: 0x7f070014
 			public const int relativeLayout1 = 2131165204;
 			
-			// aapt resource value: 0x7f07001e
-			public const int scanListview = 2131165214;
+			// aapt resource value: 0x7f07001d
+			public const int scanListview = 2131165213;
 			
 			// aapt resource value: 0x7f07000c
 			public const int switch1 = 2131165196;
@@ -194,7 +194,7 @@ namespace VM204
 			public const int ControlLayout = 2130903041;
 			
 			// aapt resource value: 0x7f030002
-			public const int CustomRowView = 2130903042;
+			public const int DiscoveryRow = 2130903042;
 			
 			// aapt resource value: 0x7f030003
 			public const int EditActivity = 2130903043;
@@ -203,7 +203,10 @@ namespace VM204
 			public const int Main = 2130903044;
 			
 			// aapt resource value: 0x7f030005
-			public const int ScanActivity = 2130903045;
+			public const int RelayCardInfoRow = 2130903045;
+			
+			// aapt resource value: 0x7f030006
+			public const int ScanActivity = 2130903046;
 			
 			static Layout()
 			{
@@ -219,10 +222,13 @@ namespace VM204
 		{
 			
 			// aapt resource value: 0x7f060000
-			public const int menu = 2131099648;
+			public const int discoverymenu = 2131099648;
 			
 			// aapt resource value: 0x7f060001
-			public const int scanmenu = 2131099649;
+			public const int menu = 2131099649;
+			
+			// aapt resource value: 0x7f060002
+			public const int scanmenu = 2131099650;
 			
 			static Menu()
 			{

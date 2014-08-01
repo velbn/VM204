@@ -11,23 +11,15 @@ using System.CodeDom.Compiler;
 
 namespace iVM204
 {
-	[Register ("MasterViewController")]
-	partial class MasterViewController
+	[Register ("T")]
+	partial class T
 	{
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UIBarButtonItem addButton { get; set; }
-
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UITableView TableView { get; set; }
 
 		void ReleaseDesignerOutlets ()
 		{
-			if (addButton != null) {
-				addButton.Dispose ();
-				addButton = null;
-			}
 			if (TableView != null) {
 				TableView.Dispose ();
 				TableView = null;

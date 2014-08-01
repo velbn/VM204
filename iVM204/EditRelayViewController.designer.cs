@@ -16,31 +16,31 @@ namespace iVM204
 	{
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIButton btnSave { get; set; }
+		MonoTouch.UIKit.UIButton btnSave { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIView Edit { get; set; }
+		MonoTouch.UIKit.UIView Edit { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UITextField txtIp { get; set; }
+		MonoTouch.UIKit.UITextField txtIp { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UITextField txtName { get; set; }
+		MonoTouch.UIKit.UITextField txtName { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UITextField txtPass { get; set; }
+		MonoTouch.UIKit.UITextField txtPass { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UITextField txtPort { get; set; }
+		MonoTouch.UIKit.UITextField txtPort { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UITextField txtUser { get; set; }
+		MonoTouch.UIKit.UITextField txtUser { get; set; }
 
 		void ReleaseDesignerOutlets ()
 		{

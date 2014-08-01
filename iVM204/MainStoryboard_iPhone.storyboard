@@ -272,12 +272,33 @@
                         <outlet property="txtIp" destination="90" id="name-outlet-90"/>
                         <outlet property="txtPort" destination="91" id="name-outlet-91"/>
                         <outlet property="btnSave" destination="235" id="name-outlet-235"/>
+                        <outlet property="EditNavigation" destination="75" id="name-outlet-75"/>
                     </connections>
-                    <navigationItem title="Edit / Add" id="75" translatesAutoresizingMaskIntoConstraints="NO" key="navigationItem"/>
+                    <navigationItem title="Title" id="264" translatesAutoresizingMaskIntoConstraints="NO" key="navigationItem"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="48" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1316" y="66"/>
+            <point key="canvasLocation" x="1377" y="68"/>
+        </scene>
+        <scene sceneID="240">
+            <objects>
+                <tableViewController id="241" sceneMemberID="viewController" customClass="ScanViewController" storyboardIdentifier="Scan">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="242">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes/>
+                        <connections>
+                            <outlet property="dataSource" destination="241" id="243"/>
+                            <outlet property="delegate" destination="241" id="244"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="247" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1867" y="66"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

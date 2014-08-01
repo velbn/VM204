@@ -17,7 +17,7 @@ namespace aVM204
     public class ScanActivity : Activity
     {
         private static string RESULT_OK = "OK";
-        private RelayCardInfoAdapter adapter;
+        private DiscoveryAdapter adapter;
         ListView list;
         DiscoveryTool discovery;
         Button btnScan;
@@ -29,16 +29,9 @@ namespace aVM204
             // Create your application here
             list = FindViewById<ListView>(Resource.Id.scanListview);
 
-            btnScan = FindViewById<Button>(Resource.Id.btnScan);
-            btnScan.Click += (object sender, EventArgs e) => {
-                adapter.items.Clear();
-                adapter.NotifyDataSetChanged();
-                discovery.FindDevice(); 
-            };
 
-            adapter = new RelayCardInfoAdapter(this, new List<RelayCardInfo>());
+            adapter = new DiscoveryAdapter(this, new List<RelayCardInfo>());
             list.Adapter = adapter;
-            list.DescendantFocusability = DescendantFocusability.BlockDescendants;
             list.ItemClick += list_ItemClick;
 
             discovery = new DiscoveryTool();
@@ -57,6 +50,27 @@ namespace aVM204
             discovery.FindDevice();
 
 
+        }
+
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Menu.discoverymenu, menu);
+            IMenuItem btnAddRelayCardInfo = menu.FindItem(Resource.Id.action_search);
+            return base.OnCreateOptionsMenu(menu);
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                case Resource.Id.action_scan:
+                    adapter.items.Clear();
+                    adapter.NotifyDataSetChanged();
+                    discovery.FindDevice();                    
+                    return true;
+                default:
+                    return base.OnOptionsItemSelected(item);
+            }
         }
 
         void list_ItemClick(object sender, AdapterView.ItemClickEventArgs e)

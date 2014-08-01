@@ -28,10 +28,7 @@ namespace iVM204
                 var masterNavigationController = (UINavigationController)splitViewController.ViewControllers[0];
                 var detailNavigationController = (UINavigationController)splitViewController.ViewControllers[1];
 
-                var masterViewController = (MasterViewController)masterNavigationController.TopViewController;
-                
-
-              
+                var masterViewController = (MasterViewController)masterNavigationController.TopViewController;      
             }
 
             return true;

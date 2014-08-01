@@ -21,8 +21,8 @@ namespace VM204
         {
             server = new UdpListener();
             discoveryBuilder = new DiscoveryBuilder();
-            IPEndPoint ipep = new IPEndPoint(IPAddress.Any, 30303);
-            client = new UdpClient(ipep);
+            IPEndPoint broadcastAddress = new IPEndPoint(IPAddress.Any, 30303);
+            client = new UdpClient(broadcastAddress);
 
         }
 
